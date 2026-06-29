@@ -163,7 +163,8 @@ def _add_publication(
     schema_type = URIRef(schema_type_str)
 
     g.add((pub_uri, RDF.type, schema_type))
-    g.add((pub_uri, SDO.name, Literal(pub.title)))
+    display_title = f"{pub.title} ({pub.version})" if pub.version else pub.title
+    g.add((pub_uri, SDO.name, Literal(display_title)))
     g.add((pub_uri, SDO.identifier, URIRef(doi_url)))
 
     if pub.publication_year:

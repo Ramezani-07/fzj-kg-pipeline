@@ -42,6 +42,7 @@ class Publication:
     resource_type: str
     publisher: Optional[str]
     url: Optional[str]
+    version: Optional[str]
 
 
 def fetch_publications(orcid_iri: str) -> list[Publication]:
@@ -134,6 +135,7 @@ def _parse_record(record: dict) -> Optional[Publication]:
             resource_type=resource_type,
             publisher=_extract_publisher(attrs),
             url=attrs.get("url"),
+            version=attrs.get("version"),
         )
     except Exception as exc:
         logger.warning("Failed to parse DataCite record: %s", exc)
