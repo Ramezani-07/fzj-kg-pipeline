@@ -1,9 +1,5 @@
 # FZJ Knowledge Graph Pipeline
 
-> A data pipeline harvesting GitHub repositories, resolving contributor
-> ORCIDs, retrieving associated publications via DataCite, and storing
-> the result as a FAIR-aligned RDF knowledge graph.
-
 ## Overview
 
 The pipeline harvests the IAS-9 GitHub organisation
