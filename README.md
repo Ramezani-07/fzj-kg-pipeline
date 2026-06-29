@@ -24,7 +24,7 @@ cd fzj-kg-pipeline
 pip install -r requirements.txt
 
 # 3. Configure your GitHub token
-cp .env.example .env
+cp env.example .env
 # Edit .env and set: GITHUB_TOKEN=ghp_your_token_here
 
 # 4. Run the pipeline (10 repos by default)
@@ -49,7 +49,7 @@ python pipeline.py --max-repos 10 --log-level DEBUG
 
 ```bash
 # 1. Configure your GitHub token
-cp .env.example .env
+cp env.example .env
 # Edit .env and set GITHUB_TOKEN
 
 # 2. Build and run

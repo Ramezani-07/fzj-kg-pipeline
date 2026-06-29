@@ -47,7 +47,7 @@ def _get_token() -> str:
     token = os.getenv("GITHUB_TOKEN")
     if not token:
         raise RuntimeError(
-            "GITHUB_TOKEN not set. Create a .env file from .env.example"
+            "GITHUB_TOKEN not set. Create a .env file from env.example"
         )
     return token
 
