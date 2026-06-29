@@ -90,9 +90,6 @@ mirroring the Helmholtz Knowledge Graph's own data model. The HKG uses
 `schema:Person`, `schema:SoftwareSourceCode`, `schema:ScholarlyArticle`, and
 `schema:Dataset` for the same entity types this pipeline produces.
 
-The `https://schema.org/` namespace (HTTPS) is used throughout — the old
-`http://schema.org/` form is deprecated in current Linked Data practice.
-
 The DataCite `resourceTypeGeneral` → schema.org type mapping follows the
 official **DataCite Metadata Schema 4.4 to Schema.org Mapping** crosswalk:
 https://doi.org/10.5281/zenodo.7661399
@@ -134,7 +131,6 @@ It is simpler, well-documented, and sufficient for this task scope.
 pyvis generates a **standalone interactive HTML file** using the vis.js
 network library. Unlike a matplotlib static PNG, the output can be:
 - Opened directly in any browser without a running server
-- Screenshared during the interview with interactive hover/zoom
 - Saved as a single self-contained file for distribution
 
 Provenance edges (`prov:wasDerivedFrom`) are excluded from the visualisation
@@ -167,25 +163,6 @@ to keep the graph readable. They are present in the Turtle and JSON-LD output.
 - **GitHub contributor list reflects commit activity only.** Team members who
   contribute through issues, reviews, or project management without committing
   code will not appear in the contributors endpoint.
-
----
-
-## What a Production Version Would Add
-
-- **Pydantic validation models** for type-safe validation of each record
-  before graph insertion — mirroring the HKG's own processing layer.
-- **Apache Airflow orchestration** for scheduled weekly runs with retry logic,
-  task isolation, and monitoring dashboards.
-- **PostgreSQL persistence** of the raw API responses, enabling re-mapping
-  when the data model evolves without re-harvesting all sources.
-- **Incremental harvesting** using GitHub's `since` parameter (commits) and
-  DataCite's `updated` date filter to reduce weekly pipeline execution time.
-- **SSSOM mapping files** to document the DataCite → schema.org field mappings
-  as machine-readable, shareable artefacts — as planned in the HKG roadmap.
-- **Graph quality monitoring** via SPARQL-based consistency probes run
-  post-assembly to detect structural anomalies and entity duplication.
-
----
 
 ## Project Structure
 
