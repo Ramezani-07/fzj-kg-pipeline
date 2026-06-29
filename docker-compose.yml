@@ -1,0 +1,10 @@
+version: "3.9"
+
+services:
+  pipeline:
+    build: .
+    env_file:
+      - .env
+    volumes:
+      - ./output:/app/output
+    command: ["--max-repos", "10", "--output-dir", "/app/output"]
